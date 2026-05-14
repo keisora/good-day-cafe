@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Day Cafe | 静岡県袋井市の隠れ家カフェ</title>
+  <meta name="description" content="静岡県袋井市川井に佇む隠れ家カフェ。自家焙煎コーヒーと手作りランチ・スイーツをお楽しみください。営業時間 10:30〜20:30（木曜定休）。無料駐車場あり。">
+
+  <!-- ★ OGP：SNSでシェアされたときにサムネイル・タイトルを表示 -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Good Day Cafe | 静岡県袋井市の隠れ家カフェ">
+  <meta property="og:description" content="自家焙煎コーヒーと手作りランチ。袋井市川井の隠れ家カフェ。営業 10:30〜20:30（木曜定休）">
+  <meta property="og:image"       content="S__118636554_0.jpg">
+  <meta property="og:url"         content="https://example.com"><!-- ★ 公開後に実際のURLへ変更してください -->
+  <meta property="og:site_name"   content="Good Day Cafe">
+  <meta property="og:locale"      content="ja_JP">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="Good Day Cafe | 静岡県袋井市の隠れ家カフェ">
+  <meta name="twitter:description" content="自家焙煎コーヒーと手作りランチ。袋井市川井の隠れ家カフェ。">
+  <meta name="twitter:image"      content="S__118636554_0.jpg">
+
+  <!-- ★ ファビコン（ブラウザタブのアイコン） -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:  #ffffff;
+      --cream:  #faf7f2;
+      --beige:  #f0e9df;
+      --tan:    #d4b896;
+      --brown:  #8b6f52;
+      --dark:   #3a2e28;
+      --text:   #4a3f38;
+      --light:  #7a6a5e;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 64px;
+      background: #3a2e28;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      color: #faf7f2;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #faf7f2;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: block;
+    }
+    .nav-links a:hover { color: #d4b896; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO（写真背景） ── */
+    .hero {
+      margin-top: 64px;
+      height: calc(100svh - 64px);
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 写真レイヤー */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('S__118636557_0.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      transform: scale(1.06);
+      transition: transform 7s ease;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    /* 暗めのオーバーレイ */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 12, 8, 0.52) 0%,
+        rgba(20, 12, 8, 0.42) 60%,
+        rgba(20, 12, 8, 0.65) 100%
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .hero-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 9vw, 6rem);
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .hero-title em {
+      display: block;
+      font-style: italic;
+      color: var(--tan);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 380px;
+      margin: 0 auto 2.2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.78rem 2.4rem;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 40px;
+      transition: all 0.25s;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--white);
+    }
+    .btn-brown {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: var(--white);
+    }
+    .btn-brown:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.55);
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.35);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 5vw; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--dark);
+      margin-bottom: 2.5rem;
+      line-height: 1.25;
+    }
+    .section-title span { color: var(--brown); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--light);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img {
+      width: 100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 110px;
+      height: 110px;
+      background: var(--brown);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-align: center;
+      line-height: 1.5;
+      border: 4px solid var(--cream);
+    }
+    .about-badge strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      display: block;
+    }
+
+    /* ── MENU ── */
+    #menu { background: var(--cream); }
+
+    .menu-inner { max-width: 1100px; margin: 0 auto; }
+
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.55rem 1.6rem;
+      border: 1.5px solid var(--tan);
+      background: none;
+      color: var(--light);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: var(--white);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .set-price-box {
+      background: var(--beige);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--tan);
+    }
+    .set-price-box h3 {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.8rem;
+    }
+    .set-price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem 2rem;
+    }
+    .set-price-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+    }
+    .set-price-item .label { color: var(--light); }
+    .set-price-item .price { font-weight: 500; color: var(--dark); }
+
+    .menu-category { margin-bottom: 2.8rem; }
+    .menu-category h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--dark);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.4rem 1.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed rgba(212,184,150,0.4);
+      font-size: 0.88rem;
+    }
+    .menu-item .name { color: var(--text); }
+    .menu-item .price {
+      font-weight: 500;
+      color: var(--brown);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .menu-note {
+      font-size: 0.78rem;
+      color: var(--light);
+      margin-top: 0.6rem;
+      padding: 0.5rem 0.8rem;
+      background: rgba(212,184,150,0.15);
+      border-radius: 6px;
+      line-height: 1.7;
+    }
+
+    .menu-img-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .menu-img-row figure {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .menu-img-row img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .menu-img-row figure:hover img { transform: scale(1.04); }
+    .menu-img-row figcaption {
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 0.4rem;
+      color: var(--light);
+      background: var(--beige);
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--dark); }
+    #gallery .section-label { color: var(--tan); }
+    #gallery .section-title { color: var(--white); }
+    #gallery .section-title span { color: var(--tan); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-grid figure { overflow: hidden; border-radius: var(--radius); }
+    .gallery-grid figure:first-child { grid-column: span 2; }
+    .gallery-grid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-grid figure:first-child img { height: 400px; }
+    .gallery-grid figure:hover img { transform: scale(1.05); }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--beige); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+    }
+    .review-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--tan);
+      line-height: 0.6;
+      position: absolute;
+      top: 1.4rem;
+      left: 1.5rem;
+      opacity: 0.5;
+    }
+
+    .review-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+    .star { color: #c9965a; font-size: 0.9rem; }
+
+    .review-text {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--light);
+      line-height: 1.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-ratings {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .rating-chip {
+      font-size: 0.72rem;
+      color: var(--brown);
+      background: var(--beige);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* ── ACCESS ── */
+    #access { background: var(--white); }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .info-list { list-style: none; }
+    .info-list li {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--beige);
+      font-size: 0.92rem;
+    }
+    .info-list li:last-child { border-bottom: none; }
+
+    .info-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--beige);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 0.2rem;
+    }
+    .info-value { font-weight: 500; color: var(--dark); }
+    .info-value a { color: var(--dark); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(58,46,40,0.1);
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 360px;
+      border: none;
+    }
+
+    /* Google Maps ボタン */
+    .map-link-btn {
+      display: block;
+      margin-top: 0.8rem;
+      text-align: center;
+      padding: 0.65rem;
+      border-radius: 8px;
+      background: var(--beige);
+      color: var(--brown);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .map-link-btn:hover { background: var(--tan); color: var(--white); }
+
+    .sns-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* Instagram ボタン */
+    .sns-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.75rem 1.8rem;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .sns-btn:hover { opacity: 0.88; }
+    .sns-btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+    /* Google Maps ボタン（リスト下） */
+    .google-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.75rem 1.8rem;
+      background: #4285f4;
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .google-btn:hover { opacity: 0.88; }
+    .google-btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.8rem 5vw;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    footer p { margin-top: 0.3rem; }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+    footer .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.72rem;
+    }
+    footer .footer-links a:hover { color: var(--tan); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 64px;
+        left: 0; right: 0;
+        background: #3a2e28;
+        padding: 0.5rem 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 0.9rem 5vw;
+        border-bottom: 1px solid rgba(212,184,150,0.2);
+        color: #faf7f2;
+      }
+      .nav-toggle { display: flex; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-wrap { order: -1; }
+      .about-badge { width: 90px; height: 90px; right: 0.5rem; bottom: -1rem; font-size: 0.56rem; }
+      .about-badge strong { font-size: 0.85rem; }
+
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid figure:first-child { grid-column: span 2; }
+      .gallery-grid img { height: 200px; }
+      .gallery-grid figure:first-child img { height: 240px; }
+
+      .access-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 4rem 5vw; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid figure:first-child { grid-column: span 1; }
+    }
+  </style>
+
+  <!-- ★ JSON-LD 構造化データ（検索エンジン向け店舗情報） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Good Day Cafe",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "川井963-1",
+      "addressLocality": "袋井市",
+      "addressRegion": "静岡県",
+      "postalCode": "437-0064",
+      "addressCountry": "JP"
+    },
+    "telephone": "0538-43-5380",
+    "openingHours": "Mo Tu We Fr Sa Su 10:30-20:30",
+    "url": "https://example.com",
+    "sameAs": "https://www.instagram.com/cafegoodday"
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#top">Good Day Cafe</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#access">Access</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ★ HERO：写真背景 -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <p class="hero-sub">Cafe &amp; Restaurant · Fukuroi, Shizuoka</p>
+    <h1 class="hero-title">
+      Good Day<br><em>Cafe</em>
+    </h1>
+    <p class="hero-desc">自家焙煎コーヒーと手作りランチ。<br>静岡・袋井の小さな隠れ家カフェ。</p>
+    <a href="#menu" class="btn">Menu を見る</a>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">SCROLL</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">日常を忘れさせてくれる、<span>ひとときを。</span></h2>
+      <p>袋井市川井の住宅街にひっそりと佇む小さなカフェ。白と茶色を基調としたナチュラルな空間は、清潔感と木の温もりに包まれ、訪れるたびに心からリラックスできます。</p>
+      <p>コーヒーは丁寧に選び抜いた豆を自家焙煎。ランチはもちろん、スイーツやドリンクも心を込めてご用意しています。お一人でも、大切な人とも、のんびり過ごしていただける場所です。</p>
+      <p>※ お支払いは現金のみとなります。</p>
+    </div>
+    <div class="about-img-wrap">
+      <img src="S__118636554_0.jpg" alt="Good Day Cafe のハンバーグランチプレート" loading="lazy">
+      <div class="about-badge" aria-hidden="true">
+        <strong>自家焙煎</strong>
+        Coffee
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-inner">
+    <p class="section-label">Menu</p>
+    <h2 class="section-title">こだわりの<span>メニュー</span></h2>
+    <p style="font-size:0.82rem;color:var(--light);margin-bottom:1.8rem;">表示価格はすべて税込です。</p>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="lunch" role="tab" aria-selected="true">ランチメニュー</button>
+      <button class="tab-btn" data-tab="sweets" role="tab" aria-selected="false">スイーツ＆ドリンク</button>
+    </div>
+
+    <!-- LUNCH -->
+    <div class="tab-panel active" id="tab-lunch" role="tabpanel">
+
+      <div class="set-price-box">
+        <h3>ランチセット料金 ／ 10:30〜15:00（ワンオーダー制）</h3>
+        <div class="set-price-grid">
+          <div class="set-price-item"><span class="label">食事のみ（サラダ小し増）</span><span class="price">¥1,200</span></div>
+          <div class="set-price-item"><span class="label">A. ドリンクセット</span><span class="price">¥1,200</span></div>
+          <div class="set-price-item"><span class="label">B. スイーツセット</span><span class="price">¥1,400</span></div>
+          <div class="set-price-item"><span class="label">C. ドリンク＋スイーツセット</span><span class="price">¥1,600</span></div>
+        </div>
+        <p class="menu-note">※ お一人で2品以上ご注文の場合、2品目以降は単品価格（¥1,000）となります。ランチのご利用は2時間まで。</p>
+      </div>
+
+      <div class="menu-category">
+        <h3>Food — メインフード</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">チリビーンズライス</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">チリビーンズパン</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">スクランブルエッグプレート</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">ピザトーストプレート</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">ドリア</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">マカロニグラタン</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+          <div class="menu-item"><span class="name">ナポリタン</span><span class="price"><!-- TODO: 価格を入力 --></span></div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Right Food — ライトフード</h3>
+        <div class="set-price-box" style="margin-bottom:1.5rem;">
+          <div class="set-price-grid">
+            <div class="set-price-item"><span class="label">A. ドリンクセット</span><span class="price">¥1,100</span></div>
+            <div class="set-price-item"><span class="label">B. スイーツセット</span><span class="price">¥1,200</span></div>
+            <div class="set-price-item"><span class="label">C. ドリンク＋スイーツセット</span><span class="price">¥1,400</span></div>
+          </div>
+          <p class="menu-note">※ お一人で2品以上ご注文の場合、2品目以降は単品価格（¥550）となります。</p>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">トースト（はちみつ）</span></div>
+          <div class="menu-item"><span class="name">小倉サンド</span></div>
+          <div class="menu-item"><span class="name">ピザトースト</span></div>
+          <div class="menu-item"><span class="name">ハーフサンド BLTE</span></div>
+          <div class="menu-item"><span class="name">ハーフサンド 生ハムたまご</span></div>
+          <div class="menu-item"><span class="name">チリビーンズ（パン付）</span></div>
+          <div class="menu-item"><span class="name">サラダ盛り合わせ</span></div>
+        </div>
+        <p class="menu-note">サンドイッチ（BLTEサンド・ツナサンド・生ハムたまごサンド・ベーコンサンド）もお選びいただけます。</p>
+      </div>
+
+      <div class="menu-category">
+        <h3>Others — サイドメニュー</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">目玉焼き</span><span class="price">¥110</span></div>
+          <div class="menu-item"><span class="name">サラスパ</span><span class="price">¥110</span></div>
+          <div class="menu-item"><span class="name">パン粉</span><span class="price">¥110</span></div>
+          <div class="menu-item"><span class="name">ポテサラ</span><span class="price">¥110</span></div>
+          <div class="menu-item"><span class="name">粉チーズ</span><span class="price">¥55</span></div>
+        </div>
+        <p class="menu-note">※ キッズプレート（¥220）もご用意しています。お子様連れも大歓迎です。</p>
+      </div>
+
+      <div class="menu-category">
+        <h3>Sweets — デザート</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">チーズケーキ</span></div>
+          <div class="menu-item"><span class="name">プリンサンデー　/ プリン単品</span></div>
+          <div class="menu-item"><span class="name">あずきのデザート</span></div>
+          <div class="menu-item"><span class="name">アイスクリーム</span></div>
+          <div class="menu-item"><span class="name">日替わりスイーツ</span></div>
+        </div>
+        <p class="menu-note">ケーキ類は＋¥55（税込）でアイスクリームをプラスできます。<br>アイスクリームのシロップ：いちご・もも・メロン・カシス・はちみつ</p>
+      </div>
+
+      <div class="menu-img-row">
+        <figure>
+          <img src="S__118636554_0.jpg" alt="ハンバーグランチ" loading="lazy">
+          <figcaption>ハンバーグランチ</figcaption>
+        </figure>
+        <figure>
+          <img src="S__118636555_0.jpg" alt="グラタン" loading="lazy">
+          <figcaption>グラタン</figcaption>
+        </figure>
+        <figure>
+          <img src="S__118636557_0.jpg" alt="ナポリタン" loading="lazy">
+          <figcaption>ナポリタン</figcaption>
+        </figure>
+        <figure>
+          <img src="S__118636556_0.jpg" alt="小倉サンド" loading="lazy">
+          <figcaption>小倉サンド</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- SWEETS & DRINK -->
+    <div class="tab-panel" id="tab-sweets" role="tabpanel">
+
+      <div class="set-price-box">
+        <h3>スイーツ＆ドリンク ／ ワンオーダー制</h3>
+        <div class="set-price-grid">
+          <div class="set-price-item"><span class="label">スイーツのみ（アイスクリーム・焼き菓子付）</span><span class="price">¥1,000</span></div>
+          <div class="set-price-item"><span class="label">ドリンクセット</span><span class="price">スイーツ価格＋ドリンク代</span></div>
+        </div>
+        <p class="menu-note">※ お一人で2品以上ご注文の場合、2品目以降は単品価格となります。</p>
+      </div>
+
+      <div class="menu-category">
+        <h3>Sweets</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">チーズケーキ</span><span class="price">¥550（セット¥500）</span></div>
+          <div class="menu-item"><span class="name">プリンサンデー</span><span class="price">¥550（セット¥500）</span></div>
+          <div class="menu-item"><span class="name">あずきのデザート</span><span class="price">¥550（セット¥500）</span></div>
+          <div class="menu-item"><span class="name">アイスクリーム</span><span class="price">¥550（セット¥500）</span></div>
+          <div class="menu-item"><span class="name">プリン 単品</span><span class="price">¥400</span></div>
+          <div class="menu-item"><span class="name">日替わりスイーツ</span><span class="price">¥550〜</span></div>
+        </div>
+        <p class="menu-note">ケーキ類は＋¥55でアイスクリームをプラスできます。<br>アイスクリームのシロップ：いちご・もも・メロン・カシス・はちみつ<br>コーヒーチケットあります！ 4杯分で¥1,760（税込）</p>
+      </div>
+
+      <div class="menu-category">
+        <h3>Coffee — 自家焙煎</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">GoodDayブレンド</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">ストレートコーヒー（日替わり）</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">アイスコーヒー</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">コーヒーロック</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">コーヒースカッシュ</span><span class="price">¥550</span></div>
+          <div class="menu-item"><span class="name">アイスカフェオレ</span><span class="price">¥550</span></div>
+          <div class="menu-item"><span class="name">カフェオレ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">コーヒーフロート</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">ウインナーコーヒー</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">アイスウインナーコーヒー</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">ミントアイスカフェオレ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">モカフロスティ</span><span class="price">¥600</span></div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Soft Drink</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">ミルク</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">ストロベリーミルク</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">ココア</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">アイスココア</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">紅茶</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">アイスティー</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">ミルクティー</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">アイスミルクティー</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">カモミールティー</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">オレンジジュース</span><span class="price">¥550</span></div>
+          <div class="menu-item"><span class="name">グレープフルーツジュース</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">バナナジュース</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">メロンソーダ</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">メロンクリームソーダ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">レモンスカッシュ</span><span class="price">¥500</span></div>
+          <div class="menu-item"><span class="name">イチゴクリームソーダ</span><span class="price">¥600</span></div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Non-Alcoholic</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">ブルーレモネードソーダ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">カシスグレープ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">クランベリーオレンジ</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">ザクロソーダ</span><span class="price">¥600</span></div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Alcoholic</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><span class="name">ビール</span><span class="price">¥600</span></div>
+          <div class="menu-item"><span class="name">ウイスキー</span><span class="price">¥800</span></div>
+          <div class="menu-item"><span class="name">カクテル</span><span class="price">¥700〜</span></div>
+          <div class="menu-item"><span class="name">アイリッシュコーヒー</span><span class="price">¥800</span></div>
+        </div>
+        <p class="menu-note">アルコールメニューについてはスタッフへお気軽にお声がけください。</p>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <img src="S__118636553_0.jpg" alt="プリンサンデー" loading="lazy"
+             style="width:100%;max-width:480px;border-radius:var(--radius);display:block;margin:0 auto;">
+        <p style="text-align:center;font-size:0.8rem;color:var(--light);margin-top:0.6rem;">プリンサンデー</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <p class="section-label">Gallery</p>
+  <h2 class="section-title">店内の<span>お料理たち</span></h2>
+  <div class="gallery-grid">
+    <figure>
+      <img src="S__118636554_0.jpg" alt="ハンバーグランチプレート" loading="lazy">
+    </figure>
+    <figure>
+      <img src="S__118636557_0.jpg" alt="ナポリタン" loading="lazy">
+    </figure>
+    <figure>
+      <img src="S__118636553_0.jpg" alt="プリンサンデー" loading="lazy">
+    </figure>
+    <figure>
+      <img src="S__118636555_0.jpg" alt="グラタン" loading="lazy">
+    </figure>
+    <figure>
+      <img src="S__118636556_0.jpg" alt="小倉サンド" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <p class="section-label">Reviews</p>
+  <h2 class="section-title">お客様の<span>声</span></h2>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars" aria-label="4点中4点">
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true" style="opacity:.3">★</span>
+      </div>
+      <p class="review-text">住宅街に佇む隠れ家のような静けさがとても魅力的。白と茶色を基調としたナチュラルな色調で、清潔感と木の温もりに包まれて心からリラックスできます。丁寧に淹れられた自家焙煎のコーヒーを啜りながら過ごすひとときは、まさに日常を忘れさせてくれる贅沢。</p>
+      <div class="review-ratings">
+        <span class="rating-chip">食事 ★4</span>
+        <span class="rating-chip">雰囲気 ★4</span>
+        <span class="rating-chip">待ち時間なし</span>
+        <span class="rating-chip">無料駐車場あり</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars" aria-label="5点中5点">
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true">★</span>
+      </div>
+      <p class="review-text">手作りのハンバーグは最高でした。コーヒーもおいしいし、気持ちいい接客をしてくださり、心地よい時間を過ごせました。また絶対に来たいと思います！</p>
+      <div class="review-ratings">
+        <span class="rating-chip">食事 ★5</span>
+        <span class="rating-chip">サービス ★5</span>
+        <span class="rating-chip">雰囲気 ★5</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars" aria-label="5点中5点">
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        <span class="star" aria-hidden="true">★</span>
+      </div>
+      <p class="review-text">帰り際、オーナーさんが私の車をスムーズに出せるよう誘導してくださり、最後まで見送ってくださいました。美味しいお料理と心があたたかくなるおもてなし——また伺います。</p>
+      <div class="review-ratings">
+        <span class="rating-chip">食事 ★5</span>
+        <span class="rating-chip">サービス ★5</span>
+        <span class="rating-chip">雰囲気 ★5</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <p class="section-label">Access &amp; Info</p>
+  <h2 class="section-title">店舗<span>情報</span></h2>
+  <div class="access-grid">
+    <div>
+      <ul class="info-list">
+        <li>
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div>
+            <div class="info-label">住所</div>
+            <div class="info-value">〒437-0064<br>静岡県袋井市川井963−1</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon" aria-hidden="true">📞</div>
+          <div>
+            <div class="info-label">電話番号</div>
+            <div class="info-value"><a href="tel:0538435380">0538-43-5380</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon" aria-hidden="true">🕐</div>
+          <div>
+            <div class="info-label">営業時間</div>
+            <div class="info-value">10:30 〜 20:30</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon" aria-hidden="true">🗓</div>
+          <div>
+            <div class="info-label">定休日</div>
+            <div class="info-value">木曜日</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon" aria-hidden="true">🅿</div>
+          <div>
+            <div class="info-label">駐車場</div>
+            <div class="info-value">無料駐車場あり（複数台）</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon" aria-hidden="true">💴</div>
+          <div>
+            <div class="info-label">お支払い</div>
+            <div class="info-value">現金のみ</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="sns-buttons">
+        <a href="https://www.instagram.com/cafegoodday?utm_medium=copy_link"
+           target="_blank" rel="noopener noreferrer" class="sns-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram @cafegoodday
+        </a>
+
+        <!-- ★ Google ビジネスプロフィール（口コミ閲覧・投稿） -->
+        <a href="https://www.google.com/maps/search/Good+Day+Cafe+%E8%A2%8B%E4%BA%95%E5%B8%82%E5%B7%9D%E4%BA%95963-1/"
+           target="_blank" rel="noopener noreferrer" class="google-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/></svg>
+          Google で口コミを見る
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <!-- ★ Google マップ（正しい検索クエリ） -->
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Good+Day+Cafe+%E9%9D%99%E5%B2%A1%E7%9C%8C%E8%A2%8B%E4%BA%95%E5%B8%82%E5%B7%9D%E4%BA%95963-1&output=embed&hl=ja&z=16"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Good Day Cafe の地図 — 静岡県袋井市川井963-1">
+        </iframe>
+      </div>
+      <a href="https://www.google.com/maps/search/Good+Day+Cafe+%E9%9D%99%E5%B2%A1%E7%9C%8C%E8%A2%8B%E4%BA%95%E5%B8%82%E5%B7%9D%E4%BA%95963-1/"
+         target="_blank" rel="noopener noreferrer" class="map-link-btn">
+        🗺 Google マップで開く
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Good Day Cafe</span>
+  <p>〒437-0064 静岡県袋井市川井963−1</p>
+  <p>TEL: <a href="tel:0538435380" style="color:rgba(255,255,255,0.5);text-decoration:none;">0538-43-5380</a></p>
+  <p style="margin-top:0.3rem;">営業時間 10:30〜20:30 ／ 木曜定休 ／ 現金のみ</p>
+  <nav class="footer-links" aria-label="フッターナビゲーション">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#access">Access</a>
+    <a href="https://www.instagram.com/cafegoodday?utm_medium=copy_link" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </nav>
+  <p style="margin-top:1.5rem;font-size:0.7rem;">&copy; Good Day Cafe. All rights reserved.</p>
+</footer>
+
+<script>
+  // ハンバーガーメニュー
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+
+  // タブ切り替え
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ヒーロー背景のズームイン演出
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('load', () => heroBg.classList.add('loaded'));
+</script>
+</body>
+</html>
